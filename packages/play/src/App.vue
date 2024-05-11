@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <sim-button />
+  <sim-button type="primary">1</sim-button>
 </template>
 
 <style scoped>

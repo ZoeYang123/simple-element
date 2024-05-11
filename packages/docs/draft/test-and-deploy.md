@@ -1,3 +1,4 @@
+```yaml
 name: Test and deploy
 
 on: # 触发条件，这里是代码被push时，发生在master分支
@@ -69,3 +70,4 @@ jobs:
         with:
           github_token: ${{ secrets.GIT_TOKEN }}
           publish_dir: .
+```

@@ -1,0 +1,199 @@
+.sim-button-group {
+  --sim-button-group-border-color: var(--sim-border-color-lighter);
+}
+.sim-button {
+  --sim-button-font-weight: var(--sim-font-weight-primary);
+  --sim-button-border-color: var(--sim-border-color);
+  --sim-button-bg-color: var(--sim-fill-color-blank);
+  --sim-button-text-color: var(--sim-text-color-regular);
+  --sim-button-disabled-text-color: var(--sim-disabled-text-color);
+  --sim-button-disabled-bg-color: var(--sim-fill-color-blank);
+  --sim-button-disabled-border-color: var(--sim-border-color-light);
+  --sim-button-hover-text-color: var(--sim-color-primary);
+  --sim-button-hover-bg-color: var(--sim-color-primary-light-9);
+  --sim-button-hover-border-color: var(--sim-color-primary-light-7);
+  --sim-button-active-text-color: var(--sim-button-hover-text-color);
+  --sim-button-active-border-color: var(--sim-color-primary);
+  --sim-button-active-bg-color: var(--sim-button-hover-bg-color);
+  --sim-button-outline-color: var(--sim-color-primary-light-5);
+  --sim-button-active-color: var(--sim-text-color-primary);
+}
+
+.sim-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--sim-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--sim-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--sim-button-bg-color);
+  border: var(--sim-border);
+  border-color: var(--sim-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--sim-font-size-base);
+  border-radius: var(--sim-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--sim-button-hover-text-color);
+    border-color: var(--sim-button-hover-border-color);
+    background-color: var(--sim-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--sim-button-active-text-color);
+    border-color: var(--sim-button-active-border-color);
+    background-color: var(--sim-button-active-bg-color);
+    outline: none;
+  }
+  /*plain*/
+  &.is-plain {
+    --sim-button-hover-text-color: var(--sim-color-primary);
+    --sim-button-hover-bg-color: var(--sim-fill-color-blank);
+    --sim-button-hover-border-color: var(--sim-color-primary);
+  }
+  /*round*/
+  &.is-round {
+    border-radius: var(--sim-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--sim-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--sim-button-disabled-bg-color);
+    border-color: var(--sim-button-disabled-border-color);
+  }
+  [class*='er-icon'] {
+    width: 1em;
+    height: 1em;
+  }
+}
+@each $val in primary, success, warning, info, danger {
+  .sim-button--$(val) {
+    --sim-button-text-color: var(--sim-color-white);
+    --sim-button-bg-color: var(--sim-color-$(val));
+    --sim-button-border-color: var(--sim-color-$(val));
+    --sim-button-outline-color: var(--sim-color-$(val)-light-5);
+    --sim-button-active-color: var(--sim-color-$(val)-dark-2);
+    --sim-button-hover-text-color: var(--sim-color-white);
+    --sim-button-hover-bg-color: var(--sim-color-$(val)-light-3);
+    --sim-button-hover-border-color: var(--sim-color-$(val)-light-3);
+    --sim-button-active-bg-color: var(--sim-color-$(val)-dark-2);
+    --sim-button-active-border-color: var(--sim-color-$(val)-dark-2);
+    --sim-button-disabled-text-color: var(--sim-color-white);
+    --sim-button-disabled-bg-color: var(--sim-color-$(val)-light-5);
+    --sim-button-disabled-border-color: var(--sim-color-$(val)-light-5);
+  }
+  .sim-button--$(val).is-plain {
+    --sim-button-text-color: var(--sim-color-$(val));
+    --sim-button-bg-color: var(--sim-color-$(val)-light-9);
+    --sim-button-border-color: var(--sim-color-$(val)-light-5);
+    --sim-button-hover-text-color: var(--sim-color-white);
+    --sim-button-hover-bg-color: var(--sim-color-$(val));
+    --sim-button-hover-border-color: var(--sim-color-$(val));
+    --sim-button-active-text-color: var(--sim-color-white);
+
+    --sim-button-disabled-text-color: var(--sim-color-$(val)-light-5);
+    --sim-button-disabled-bg-color: var(--sim-color-$(val)-light-9);
+    --sim-button-disabled-border-color: var(--sim-color-$(val)-light-8);
+  }
+}
+.sim-button--large {
+  --sim-button-size: 40px;
+  height: var(--sim-button-size);
+  padding: 12px 19px;
+  font-size: var(--sim-font-size-base);
+  border-radius: var(--sim-border-radius-base);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+}
+.sim-button--small {
+  --sim-button-size: 24px;
+  height: var(--sim-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--sim-border-radius-base) - 1px);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 5px;
+  }
+  [class*='er-icon'] {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.sim-button-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  &::after {
+    clear: both;
+  }
+  & > :deep(.sim-button){
+    float: left;
+    position: relative;
+    margin-left: 0;
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: var(--sim-button-group-border-color);
+    }
+    &:last-child{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; 
+      border-left-color: var(--sim-button-group-border-color);
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left-color: var(--sim-button-group-border-color);
+      border-right-color: var(--sim-button-group-border-color);
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:first-child:last-child {
+      border-top-right-radius: var(--sim-border-radius-base);
+      border-bottom-right-radius: var(--sim-border-radius-base);
+      border-top-left-radius: var(--sim-border-radius-base);
+      border-bottom-left-radius: var(--sim-border-radius-base);
+
+      &.is-round {
+        border-radius: var(--sim-border-radius-round);
+      }
+
+      &.is-circle {
+        border-radius: 50%;
+      }
+    }
+  }
+}

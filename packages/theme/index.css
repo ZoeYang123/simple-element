@@ -1,1 +1,67 @@
 @import './reset.css';
+
+:root {
+  /* colors */
+  --sim-color-white: #ffffff;
+  --sim-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+  --sim-bg-color: #ffffff;
+  --sim-bg-color-page: #f2f3f5;
+  --sim-bg-color-overlay: #ffffff;
+  --sim-text-color-primary: #303133;
+  --sim-text-color-regular: #606266;
+  --sim-text-color-secondary: #909399;
+  --sim-text-color-placeholder: #a8abb2;
+  --sim-text-color-disabled: #c0c4cc;
+  --sim-border-color: #dcdfe6;
+  --sim-border-color-light: #e4e7ed;
+  --sim-border-color-lighter: #ebeef5;
+  --sim-border-color-extra-light: #f2f6fc;
+  --sim-border-color-dark: #d4d7de;
+  --sim-border-color-darker: #cdd0d6;
+  --sim-fill-color: #f0f2f5;
+  --sim-fill-color-light: #f5f7fa;
+  --sim-fill-color-lighter: #fafafa;
+  --sim-fill-color-extra-light: #fafcff;
+  --sim-fill-color-dark: #ebedf0;
+  --sim-fill-color-darker: #e6e8eb;
+  --sim-fill-color-blank: #ffffff;
+  
+  @each $val, $color in var(--colors) {
+    --sim-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --sim-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
+    }
+    --sim-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  /* border */
+  --sim-border-width: 1px;
+  --sim-border-style: solid;
+  --sim-border-color-hover: var(--sim-text-color-disabled);
+  --sim-border: var(--sim-border-width) var(--sim-border-style) var(--sim-border-color);
+  --sim-border-radius-base: 4px;
+  --sim-border-radius-small: 2px;
+  --sim-border-radius-round: 20px;
+  --sim-border-radius-circle: 100%;
+
+  /*font*/
+  --sim-font-size-extra-large: 20px;
+  --sim-font-size-large: 18px;
+  --sim-font-size-medium: 16px;
+  --sim-font-size-base: 14px;
+  --sim-font-size-small: 13px;
+  --sim-font-size-extra-small: 12px;
+  --sim-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --sim-font-weight-primary: 500;
+
+  /*disabled*/
+  --sim-disabled-bg-color: var(--sim-fill-color-light);
+  --sim-disabled-text-color: var(--sim-text-color-placeholder);
+  --sim-disabled-border-color: var(--sim-border-color-light);
+
+  /*animation*/
+  --sim-transition-duration: 0.4s;
+  --sim-transition-duration-fast: 0.2s;
+}
