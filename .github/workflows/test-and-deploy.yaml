@@ -53,19 +53,19 @@ jobs:
           name: docs
           path: ./packages/docs/.vitepress/dist
 
-    deploy:
-      name: Deploy to Github Pages
-      runs-on: ubuntu-lastest
-      needs: build
+  deploy:
+    name: Deploy to Github Pages
+    runs-on: ubuntu-lastest
+    needs: build
 
-      steps:
-        - name: Download docs
-          uses: actions/download-artifact@v3
-          with:
-            name: docs
+    steps:
+      - name: Download docs
+        uses: actions/download-artifact@v3
+        with:
+          name: docs
 
-        - name: Deploy to Github Pages
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            githun_token: ${{ secretd.GITHUB_TOKEN }}
-            publish_dir: .
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          githun_token: ${{ secretd.GITHUB_TOKEN }}
+          publish_dir: .
